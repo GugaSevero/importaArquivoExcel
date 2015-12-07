@@ -14,11 +14,23 @@
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
-/*include_once("../PHPExcel/Classes/PHPExcel.php");
+if (isset($_POST['pega'])) {
+	
+include_once("PHPExcel/Classes/PHPExcel.php");
+
+$uploadDir = "/uploadFile";
+
+$uploadfile = $uploadDir . $_FILES['arquivo']['name'];
+
+if(move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
+	echo "Arquivo pego com sucesso";
+}else{
+	echo "Não foi possível pegar arquivo";
+}
 
 $objReader = new PHPExcel_Reader_Excel5();
 $objReader->setReadDataOnly(true);
-$objPHPExcel = $objReader->load("Fluxo_de_caixa_VP_1015");
+$objPHPExcel = $objReader->load("$uploadDir/Fluxo_de_caixa_VP_1015");
 
 $colunas  = $objPHPExcel->setActiveSheetIndex(0)->getHighestColumn();
 $totalColunas = PHPExcel_Cell::columnByIndexFromString($colunas);
@@ -36,10 +48,10 @@ for ($linha=1; $linha <= $totalLinhas; $linha++) {
 		}
 		
 	}
-}*/
+}
 
 //CÓDIGO 1
-if (isset($_POST['pega'])) {
+/*if (isset($_POST['pega'])) {
 
 	include_once("../PHPExcel/Classes/PHPExcel.php");
 	include_once("../PHPExcel/Classes/Autoloader.php");
@@ -61,6 +73,7 @@ if (isset($_POST['pega'])) {
 	    }
 	    fclose($handle);
 	}
+*/
 
 //CÓDIGO 2
 	/*$arquivo = $_FILES['arquivo'];
