@@ -42,7 +42,7 @@ for ($linha=1; $linha <= $totalLinhas; $linha++) {
 if (isset($_POST['pega'])) {
 
 	include_once("../PHPExcel/Classes/PHPExcel.php");
-	include_once("../PHPExcel/Classes/PHPExcel/Autoloader.php");
+	include_once("../PHPExcel/Classes/Autoloader.php");
 
 	$file = $_FILES['arquivo'];
 	$objReader = PHPExcel_IOFactory::createReader('Excel2007');
